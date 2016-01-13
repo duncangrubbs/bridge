@@ -5,7 +5,32 @@ package com.duncangrubbs.bridge;
  */
 public class Hand {
 
-    Card[] hand = new Card[12];
+    private Card[] hand = new Card[13];
+    private int lastIndex = 0;
 
-    hand[0] = new Card card1;
+    /**
+     * Add a card to the end of the hand.
+     *
+     * If hand is full, remove the first card.
+     *
+     * @param card Card to be added.
+     */
+    public void addCard(Card card) {
+        lastIndex++;
+        // check for overflow (lastIndex >= hand.length)
+        hand[lastIndex] = card;
+    }
+
+    /**
+     * Remove card at index and remove it.
+     *
+     * @param index Index of card to be removed.
+     * @return Card at index.
+     */
+    public Card popCard(int index) {
+        Card card = hand[index];
+        hand[index] = null;
+        // push up cards after index
+        return card;
+    }
 }

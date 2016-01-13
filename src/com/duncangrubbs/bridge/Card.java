@@ -5,6 +5,19 @@ package com.duncangrubbs.bridge;
  */
 public class Card {
 
-    public Card card1 = new Card();
+    public static final String CLUB = "CLUB";
+    public static final String HEART = "HEART";
+    public static final String SPADE = "SPADE";
+    public static final String DIAMOND = "DIAMOND";
+
+    String suit;
+    int number;
+
+    public Card() {}
+
+    public Card(String s, int n) {
+        suit = s;
+        number = n;
+    }
 
 }
