@@ -12,7 +12,7 @@ public class Card {
 
     String suit;
     int number;
-
+    
     public Card() {}
 
     public Card(String s, int n) {
