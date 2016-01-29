@@ -4,44 +4,50 @@ import java.util.Scanner;
 
 public class Main extends Hand{
 
-    public Scanner input = new Scanner(System.in);
+    public static Scanner input = new Scanner(System.in);
+    public static final String[] READABLE_INDEX = {
+            "First",
+//            "Second",
+//            "Third"
+            // TODO: add more
+    };
 
-    public void instructions(){
+    public static Hand hand = new Hand();
+
+    public static void showInstructions() {
         System.out.println("Welcome to the Bridge Program");
         System.out.println("How to Use:");
         System.out.println("1: Enter the values for each input");
-        System.out.println("2: Card numbers are 1-10 and face cards follow");
+        System.out.println("2: Card numbers are 2-10 and face cards follow");
         System.out.println("11 = Jack ... 14 = Ace");
         System.out.println("If there is no trump, enter none");
     }
 
-    public void userInput(){
+    public static void populateHand() {
         System.out.println("Enter your hand");
 
-        System.out.println("First card suit: ");
-        System.out.println("First card number: ");
+        for (String readableIndex : READABLE_INDEX) {
+            Card card = new Card();
+            System.out.println(readableIndex + " card suit: ");
+            // TODO: validate suit
+            card.setSuit(input.next());
 
-        System.out.println("Second card suit: ");
-        System.out.println("Second card number: ");
+            System.out.println(readableIndex + " card number: ");
+            // TODO: validate number
+            card.setNumber(input.nextInt());
 
-        System.out.println("Third card suit: ");
-        System.out.println("Third card number: ");
-
-        System.out.println("Fourth card suit: ");
-        System.out.println("Fourth card number: ");
+            hand.addCard(card);
+        }
     }
 
-    public void trump(){
+    public void trump() {
 
     }
 
-    public Main () {}
-
-
-    public static void main(String[] args){
-        Main obj = new Main();
-        obj.instructions();
+    public static void main(String[] args) {
+        showInstructions();
+        populateHand();
+        System.out.printf("You have %d points\n", hand.getPoints());
     }
-
 
 }
