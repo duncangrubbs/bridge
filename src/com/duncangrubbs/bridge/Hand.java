@@ -9,6 +9,7 @@ public class Hand {
 
     private Card[] cards = new Card[13];
     private int lastIndex = 0;
+    protected static int sum;
 
     /**
      * Add a card to the end of the hand.
@@ -37,11 +38,12 @@ public class Hand {
     }
 
     public int getPoints() {
-        int sum = 0;
+
         for (Card card : cards) {
             if (card != null)
                 sum += card.getPoints();
         }
         return sum;
     }
+
 }

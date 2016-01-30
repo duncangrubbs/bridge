@@ -7,9 +7,18 @@ public class Main extends Hand{
     public static Scanner input = new Scanner(System.in);
     public static final String[] READABLE_INDEX = {
             "First",
-//            "Second",
-//            "Third"
-            // TODO: add more
+            "Second",
+            "Third",
+            "Fourth",
+            "Fifth",
+            "Sixth",
+            "Seventh",
+            "Eighth",
+            "Ninth",
+            "Tenth",
+            "Eleventh",
+            "Twelfth",
+            "Thirteenth"
     };
 
     public static Hand hand = new Hand();
@@ -40,14 +49,30 @@ public class Main extends Hand{
         }
     }
 
-    public void trump() {
+    public static void trump() {
 
     }
+
+    public static boolean toBid(){
+        return sum > 13;
+    }
+
+    public static void bidDecider() {
+
+    }
+
 
     public static void main(String[] args) {
         showInstructions();
         populateHand();
         System.out.printf("You have %d points\n", hand.getPoints());
+
+        //TODO fix sum variable modifiers
+        if(toBid()){
+            bidDecider();
+        }else{
+            System.out.println("Pass");
+        }
     }
 
 }
