@@ -5,6 +5,7 @@ package com.duncangrubbs.bridge;
  *
  * Representation of a card with a suit and a number.
  */
+
 public class Card {
 
     public static final String CLUB = "CLUB";
@@ -14,13 +15,14 @@ public class Card {
 
     private String suit;
     private int number;
-    private int points = 0;
+    private int points;
     
     public Card() {}
 
-    public Card(String s, int n) {
+    public Card(String s, int n, int points) {
         suit = s;
         number = n;
+        points = this.getPoints();
     }
 
     public String getSuit() {
@@ -33,6 +35,20 @@ public class Card {
 
     public int getPoints() {
         return points;
+    }
+
+    public void setPoints(){
+        if(this.getNumber() == 11){
+            points = 1;
+        }else if(this.getNumber() == 12){
+            points = 2;
+        }else if(this.getNumber() == 13){
+            points = 3;
+        }else if(this.getNumber() == 14){
+            points = 4;
+        }else{
+            points = 0;
+        }
     }
 
     public void setSuit(String newSuit) {
