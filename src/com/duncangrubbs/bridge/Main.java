@@ -2,7 +2,7 @@ package com.duncangrubbs.bridge;
 
 import java.util.Scanner;
 
-public class Main extends Hand{
+public class Main extends Hand {
 
     public static Scanner input = new Scanner(System.in);
     public static final String[] READABLE_INDEX = {
@@ -47,10 +47,6 @@ public class Main extends Hand{
 
             hand.addCard(card);
         }
-    }
-
-    public static void trump() {
-
     }
 
     public static boolean toBid(){
